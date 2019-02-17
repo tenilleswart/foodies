@@ -1,20 +1,36 @@
 /* HEADER*/
 .navbar-default {
-	background-color: pink;
-	border-color: pink;
+	background-color: white;
+	border-color: white;
 }
 
-#logo{
-	    height: 100%;
-    margin-top: 10px;
-    margin-left: 5px;
+
+.bg-1{
+	background-color: #FF69B4;
+	color: #FF69B4;
+}
+
+.bg-2{
+	background-color: #FF1493;
+	color: #FF1493;
+}
+
+.bg-3{
+	background-color: #C71585;
+	color: #C71585;
+}
+
+
+.logo{
+	    height: 60px;
+    	width: 70px;
 }
 
 /*FOOTER*/
 
 .my-footer{
-	background-color: #013b80;
-    color: white;
+	background-color: white;
+    color: #FF69B4;
     height: 300px;
     background-image: linear-gradient(#013b80,black);
 }
