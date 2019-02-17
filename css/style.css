@@ -4,20 +4,43 @@
 	border-color: white;
 }
 
-
-.bg-1 {
-	background-color: #FF69B4;
-	color: #FF69B4;
+.social-media-icons{
+	height: 30px;
+    	width: 40px;
+    	align-content: right;
 }
 
-.bg-2 {
-	background-color: #FF1493;
-	color: #FF1493;
+.background-image {
+	width: 1290px;
+	height: 999px;
 }
 
-.bg-3 {
-	background-color: #C71585;
-	color: #C71585;
+.text-block{
+	font-family: 'Oswald', sans-serif;	
+	padding-left: 50px;
+	padding-right: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+.menu-button {
+	display: block;
+    width: 155px;
+    background: #5A5353;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.centered {
+position: absolute;
+top: 90%;
+left: 50%;
+transform: translate(-50%, -50%);
 }
 
 
