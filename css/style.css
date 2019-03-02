@@ -65,3 +65,92 @@ footer.footer-section {
     margin-top: 200px;
     margin-left: 120px;
 }
+
+/*ADDNEW PAGE*/
+
+.single-service{
+	border: 1px solid #ebebeb;
+	text-align: center;
+	background: #fff;
+}
+
+.service-bg{
+	height: 200px;
+	position: relative;
+}
+
+.service-bg-1{
+	background: url("images/salmon-poke.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg-2{
+	background: url("images/Eton-Mess.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg-3{
+	background: url("images/ravioli.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg h2{
+	colour: white;
+	background: pink;
+	border: 1px solid pink;
+	font-size: 17px;
+	text-align: center;
+	font-weight: 700;
+	padding: 15px;
+	position: absolute;
+	left: 8%;
+	width: 84%;
+	margin: 0;
+	bottom: -25px;
+	border-radius: 50px;
+	letter-spacing: 2px;
+}
+
+.single-service:hover .service-bg h2{
+	background: #fff;
+	transition: .9s;
+	color: grey;
+}
+
+.service-text{
+	padding: 50px 30px 20px;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.service-text p:last-child{
+	margin: 0;
+	line-height: 1.8;
+}
+
+.btn-area{
+	display: inline-block;
+	color: #333;
+	font-size: 17px;
+	font-weight: 700;
+	margin-top: 30px;
+	text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
+
+
