@@ -48,8 +48,8 @@ transform: translate(-50%, -50%);
 
 
 img#logo {
-	    height: 160px;
-    	width: 170px;
+	    height: 180px;
+    	width: 190px;
     	margin-top: -10px;
 }
 
@@ -94,6 +94,27 @@ footer.footer-section {
 }
 
 .service-bg-3{
+	background: url("images/ravioli.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg-4{
+	background: url("images/Summer-Cobb-Salad.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg-5{
+	background: url("images/Macroons.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center;
+}
+
+.service-bg-6{
 	background: url("images/ravioli.jpg");
 	-webkit-background-size: cover;
 	background-size: cover;
