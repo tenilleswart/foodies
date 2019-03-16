@@ -23,11 +23,11 @@
 	margin-top: 20px;	
 }
 .navbar_right {
-    margin-right: -60px !important;
+    margin-right: -2px !important;
 }
 
 .navbar_left {
-    margin-left: -60px !important;
+    margin-left: -2px !important;
 }
 
 body, html {
@@ -82,9 +82,9 @@ transform: translate(-50%, -50%);
 
 
 img#logo {
-	    height: 180px;
-    	width: 190px;
-    	margin-top: -10px;
+	    height: 130px;
+    	width: 130px;
+    	margin-top: -7px;
 }
 
 
@@ -210,9 +210,15 @@ footer.footer-section {
 	text-transform: capitalize;
 }
 
+.body-container{
+	padding-top: 250px;
+}
 
+/*NEW RECIPE PAGE*/
 
-
+.form{
+	background: grey;
+}
 
 
 
