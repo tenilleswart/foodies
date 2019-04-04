@@ -46,31 +46,49 @@ class Author(db.Model):
     self.first_name = first_name
     self.last_name = last_name
 
+class Recipe(db.Model):
+   recipe_id = db.Column(db.Integer(), primary_key=True)
+   recipe_title = db.Column(db.String(90), unique=True)
+   recipe_description = db.Column(db.String(250))
+   author_id = db.Column(db.Integer, db.ForeignKey(
+   'author.author_id'), nullable=False)
+   ingredient_id = db.Column(db.Integer, db.ForeignKey(
+   'ingredient.ingredient_id'), nullable=False)
+   recipe_method = db.Column(db.String(500))
+   recipe_photo = db.Column(db.String())
+   recipe_date = db.Column(db.String(10))
+   recipe_rating = db.Column(db.Integer())
+   cuisine_id = db.Column(db.Integer, db.ForeignKey(
+   'cuisine.cuisine_id'), nullable=False)
+
+   def __init__(self, recipe_id, recipe_title, recipe_description, recipe_method, recipe_photo, recipe_date, recipe_rating):
+    self.recipe_id = recipe_id
+    self.recipe_title = recipe_title
+    self.recipe_description = recipe_description
+    self.recipe_method = recipe_method
+    self.recipe_photo = recipe_photo
+    self.recipe_date = recipe_date
+    self.recipe_rating = recipe_rating
 
 
 @app.route('/')
-def foodies():
+def index():
     return render_template('index.html')
+
+
+@app.route('/addnew')
+def addnew():
+    return render_template('addnew.html') 
+
+@app.route('/addnew', methods=["GET", "POST"])
+def newrecipe(): 
+    if request.method ="POST":
+       recipe_title=request.form['recipetitle']
+
 
 if __name__ == "__main__":
     manager.run()
 
-class Recipe(db.Model):
-   recipe_id = db.Column(db.Integer(), primary_key=True)
-   title = db.Column(db.String(90), unique=True)
-   description = db.Column(db.String(250))
-   author_id = db.Column(db.Integer, db.ForeignKey(
-   'author.author_id'), nullable=False)
-   ingredient_id = db.Column(db.Integer, db.ForeignKey(
-   'ingredient.ingredient_id'), nullable=False),
-   method = db.Column(db.String(500))
-   photo = db.Column(db.String)
-   creationdate = db.Column(db.String)
-   rating = db.Column(db.Integer(),
-   cuisine_id = db.Column(db.Integer, db.ForeignKey(
-   'cuisine.cuisine_id'), nullable=False)
-
-   def __init__(self, recipe_id, title, description, )
 
 
 # class Author(db.Model):

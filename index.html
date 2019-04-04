@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="navbar-header">
           <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
                 <div class="logo">
-                   <img src="images/logo-transparent2.png" id="logo">
+                   <img src="/static/images/logo-transparent2.png" id="logo">
                 </div>
               </a>
         </div>
@@ -26,17 +26,17 @@
           <ul class="nav navbar-nav navbar-right navbar_right">
                     <li>
                          <a href="# social-media-icons">
-                    <img src="images/instagram-pink.png" class="social-media-icons">
+                    <img src="/static/images/instagram-pink.png" class="social-media-icons">
                 </a>
                     </li>
                     <li>
                         <a href="#">
-                    <img src="images/twitter-pink.svg" class="social-media-icons">
+                    <img src="/static/images/twitter-pink.svg" class="social-media-icons">
                 </a>
                     </li>
             <li class="dropdown">
               <a href="#">
-                    <img src="images/facebook-pink.png" class="social-media-icons">
+                    <img src="/static/images/facebook-pink.png" class="social-media-icons">
                 </a>
             </li>
           </ul>
@@ -56,7 +56,7 @@
     <div class="container">
         <div class="btn-wrapper">
             <button class="btn menu-button">RECIPES</button>
-            <button class="btn menu-button"> <a href="newrecipe.html">ADD NEW RECIPE</a></button>
+            <button class="btn menu-button"> <a href="{{ url_for('addnew') }}">ADD NEW RECIPE</a></button>
             <button class="btn menu-button">TOP CHEF</button>
             <button class="btn menu-button">TOP CHEF</button>
             <button class="btn menu-button">TOP CHEF</button>
