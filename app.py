@@ -82,8 +82,10 @@ def addnew():
 
 @app.route('/addnew', methods=["GET", "POST"])
 def newrecipe(): 
-    if request.method ="POST":
-       recipe_title=request.form['recipetitle']
+    if request.method == "POST":
+        print(request.form)
+        return render_template('allrecipes.html')
+       # recipe_title=request.form['recipetitle']
 
 
 if __name__ == "__main__":

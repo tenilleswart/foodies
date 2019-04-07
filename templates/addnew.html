@@ -50,38 +50,75 @@
     <div class="col-lg-12">NEW RECIPE</div>
 
        <div class="col-lg-6">
-        <form>
-             RECIPE TITLE:<br>
-             <input type="text" name="recipe title">
+        <form id="recipeForm" method="POST" name="recipe">
+             <label>RECIPE TITLE>:</label>
+             <br>
+             <input id="recipetitle" placeholder="Recipe Title" type="text" name="title">
              <br>
     </div>
+
        <div class="col-lg-6">
-             AUTHOR:<br>
-             <input type="text" name="author">
+            <!-- <form id="" method="post" name="author"> -->
+             <label>Author Name>:</label>
+             <br>
+             <input id="authorname" placeholder ="Author Name" type="text" name="author">
              <br>
    </div>
 
     <div class="col-lg-6">
-        <form>
-             DESCRIPTION:<br>
-             <input type="text" name="recipe title"><br>
+        <!-- <form id="descriptionForm" method="post" name="description"> -->
+             <label>DESCRIPTION>:</label>
+                <br>
+             <input id="description" placeholder="Description" type="text" name="description">
+             <br>
     </div>
+
        <div class="col-lg-6">
         Image:<br>
         <input type="file" id="myFile"><br>
    </div>
 
 <div class="col-lg-6">
-             INGREDIENTS:<br>
-             <input type="text" name="ingredients">
+             <label>INGREDIENTS>:</label>
+                <br>
+             <input id="ingredients" placeholder="ingredients" type="text" name="ingredients">
              <br>
-             <input type="text" name="ingredients">
+             <input id="ingredientone" placeholder="ingredientone" type="text" name="ingredientone">
              <br>
-             <input type="text" name="ingredients">
+             <input id="ingredienttwo" placeholder="ingredienttwo" type="text" name="ingredienttwo">
              <br>
-             <input type="text" name="ingredients">
+             <input id="ingredientthree" placeholder="ingredientthree" type="text" name="ingredientthree">
              <br>
+             <input id="ingredientfour" placeholder="ingredientfour" tpe="text" name="ingredientfour">
     </div>
+
+
+   <!--  <form id="ingredientone" method="post" name="ingredientone">
+             <label>ingredient One>:</label>
+                <br>
+             <input id="ingredientone" placeholder="ingredientone" type="text" name="ingredientone">
+             <br>
+    <form id="ingredienttwo" method="post" name="ingredienttwo">
+            <label>Ingredient Two>:</label>
+             <input id="ingredienttwo" placeholder="ingredienttwo" type="text" name="ingredienttwo">
+             <br>
+    <form id="ingredientthree" method="post" name="ingredientthree">
+            <label>Ingredient Three>:</label>
+             <input id="ingredientthree" placeholder="ingredientthree" type="text" name="ingredientthree">
+             <br>
+     <form id="ingredientfour" method="post" name="ingredientfour">
+            <label>Ingredient Four>:</label>        
+             <input id="ingredientfour" placeholder="ingredientfour" type="text" name="ingredientfour">
+             <br>
+      <form id="ingredientfive" method="post" name="ingredientfive">
+            <label>Ingredient Five>:</label>       
+             <input id="ingredientfive" placeholder="ingredientfive" tpe="text" name="ingredientfive">
+    </div>
+ -->
+
+
+
+
        <div class="col-lg-6">
              METHOD:<br>
              <input type="text" name="method">
@@ -90,6 +127,10 @@
              <br>
              <input type="text" name="method">
              <br>
+
+             <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+            </div>
         </form>
    </div>
 
