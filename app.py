@@ -27,20 +27,15 @@ class Ingredient(db.Model):
     __tablename__ = 'ingredient'
     ingredient_id = db.Column(db.Integer(), primary_key=True)
     ingredient_name = db.Column(db.String())
-    #ingredient_type = db.Column(db.String())
-    #ingredient_quantity = db.Column(db.String())
-
+    
     def __init__(self, ingredient_name
-      #, ingredient_type, 
-     # ingredient_quantity
+     
       ):
      self.ingredient_name = ingredient_name
-    # self.ingredient_type = ingredient_type
-    # self.ingredient_quantity = ingredient_quantity
 
 class Cuisine(db.Model):
    __tablename__ = 'cuisine'
-   
+
    cuisine_id = db.Column(db.Integer(), primary_key=True)
    cuisine_name = db.Column(db.String())
 
@@ -76,12 +71,14 @@ class Recipe(db.Model):
    cuisine_id = db.Column(db.Integer, db.ForeignKey(
    'cuisine.cuisine_id'), nullable=False)
 
-   def __init__(self, recipe_title, recipe_description, recipe_method, recipe_photo, recipe_date, recipe_rating):
+   def __init__(self, recipe_title, recipe_description, recipe_method, author_id, ingredient_id, cuisine_id, recipe_photo, recipe_rating):
     self.recipe_title = recipe_title
     self.recipe_description = recipe_description
     self.recipe_method = recipe_method
+    self.author_id = author_id
+    self.ingredient_id = ingredient_id
+    self.cuisine_id = cuisine_id
     self.recipe_photo = recipe_photo
-    self.recipe_date = recipe_date
     self.recipe_rating = recipe_rating
 
 db.create_all()
@@ -110,7 +107,7 @@ def newrecipe():
     if request.method == "POST":
         print(request.form)
 
-        imagefile = request.files['recipe_image']
+        imagefile = request.files['file']
  
         if imagefile.filename == '':
           return ERR_NO_FILE_SPECIFIED
@@ -158,30 +155,12 @@ def newrecipe():
 
         flash('Your Recipe is now Live!')
         return render_template('recipe.html')
-       # recipe_title=request.form['recipetitle']
+    
 
 
 if __name__ == "__main__":
     manager.run()
 
 
-
-# class Author(db.Model):
-#     author_id = db.Column(db.Integer(), primary_key=True)
-
-# class Recipe(db.Model):
-#     recipe_id = db.Column(db.Integer(), primary_key=True)
-#     title = db.Column(db.String(90), unique=True)
-#     description = db.Column(db.Text(250))
-#     author_id = db.Column(db.Integer, db.ForeignKey(
-#     'author.author_id'), nullable=False)
-#     ingredient_id = db.Column(db.Integer, db.ForeignKey(
-#     'ingredient.ingredient_id'), nullable=False),
-#     method = db.Column(db.Text(500))
-#     photo = db.Column(db.Text)
-#     creationdate = db.Column(db.TimeStamp)
-#     rating = db.Column(db.Integer(),
-#     cuisine_id = db.Column(db.Integer, db.ForeignKey(
-#     'cuisine.cuisine_id'), nullable=False)
 
 
