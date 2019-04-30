@@ -98,6 +98,15 @@ def addnew():
 @app.route('/allrecipes')
 def allrecipes():
     return render_template('allrecipes.html')
+
+@app.route('/recipe/<recipe_id>')
+def recipe():
+    result=db.session.query(Recipe, Ingredient, Cuisine, Author)
+    .filter(Recipe.recipe_id==recipe_id)
+    .join(Author, Recipe.author_id==Author.author_id)
+    .join(Cuisine, Recipe.cuisine_id==Cuisine.cuisine_id)
+    .join(Ingredient, Recipe.ingredient_id==Ingredient.ingredient_id)
+    return render_template('recipe.html')   
     
 def randstr():
     '''' create random string of alpha numeric characters '''
