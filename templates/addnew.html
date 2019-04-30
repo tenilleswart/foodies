@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -16,148 +16,137 @@
  <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand navbar-brand-logo" href="#">
-                <div class="logo">
-                   <img src="images/logo-transparent2.png" id="logo">
-                </div>
+          <a class="navbar-brand navbar-brand-logo navbar_left" href="#"><img src="/static/images/logo-transparent2.png" class="image-responsive logo">
               </a>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-                    <li>
-                         <a href="# social-media-icons">
-                    <img src="images/instagram-pink.png" class="social-media-icons">
-                </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                    <img src="images/twitter-pink.svg" class="social-media-icons">
-                </a>
-                    </li>
-            <li class="dropdown">
-              <a href="#">
-                    <img src="images/facebook-pink.png" class="social-media-icons">
-                </a>
-            </li>
-          </ul>
+          <div class="nav navbar-nav navbar-right navbar_right">
+                 <a href="#" class="btn btn-default">Home</a>
+                 <a href="#" class="btn btn-default">All Recipes</a>
+                 <a href="#" class="btn btn-default">Add New</a>
+             </div> 
+         </div> 
         </div>
-      </div>
     </nav>
-<!--  end navbar -->
 </header>
-   
-   <div class="container-fluid body-container">
-    <div class="col-lg-12">NEW RECIPE</div>
 
+<!--Main Content -->
+
+<div class="container">
+    <div class="row">
+         <div class="col-lg-12">NEW RECIPE</div>
+      <form id="recipeForm" method="POST" name="recipe" enctype="multipart/form-data">
        <div class="col-lg-6">
-        <form id="recipeForm" method="POST" name="recipe">
-             <label>RECIPE TITLE>:</label>
+        <input type="file" class="form-control-file" name="recipe_image" id="recipe_image" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">Select an image for this recipe</small>
+    </div>
+
+
+       <div class="col-lg-6"> 
+             <label>RECIPE TITLE</label>
              <br>
-             <input id="recipetitle" placeholder="Recipe Title" type="text" name="title">
+             <input id="recipetitle" placeholder="Recipe Title" type="text" name="recipetitle">
+             <br>
+    </div>
+       <div class="col-lg-6"> 
+             <label>AUTHOR NAME</label>
+             <br>
+             <input id="authorname" placeholder="Author Name" type="text" name="authorname">
              <br>
     </div>
 
-       <div class="col-lg-6">
-            <!-- <form id="" method="post" name="author"> -->
-             <label>Author Name>:</label>
+    <div class="col-lg-6"> 
+             <label>CUISINE</label>
              <br>
-             <input id="authorname" placeholder ="Author Name" type="text" name="author">
+             <input id="cuisine" placeholder="Cuisine" type="text" name="cuisine">
              <br>
-   </div>
+    </div>
 
     <div class="col-lg-6">
-        <!-- <form id="descriptionForm" method="post" name="description"> -->
-             <label>DESCRIPTION>:</label>
-                <br>
-             <input id="description" placeholder="Description" type="text" name="description">
-             <br>
+             DESCRIPTION:<br>
+                <textarea name="description" rows="10" cols="30"></textarea>
+
+    <div class="col-lg-6">
+             INGREDIENTS:<br>
+                <textarea name="ingredients" rows="10" cols="30"></textarea>
     </div>
 
-       <div class="col-lg-6">
-        Image:<br>
-        <input type="file" id="myFile"><br>
-   </div>
-
-<div class="col-lg-6">
-             <label>INGREDIENTS>:</label>
-                <br>
-             <input id="ingredients" placeholder="ingredients" type="text" name="ingredients">
-             <br>
-             <input id="ingredientone" placeholder="ingredientone" type="text" name="ingredientone">
-             <br>
-             <input id="ingredienttwo" placeholder="ingredienttwo" type="text" name="ingredienttwo">
-             <br>
-             <input id="ingredientthree" placeholder="ingredientthree" type="text" name="ingredientthree">
-             <br>
-             <input id="ingredientfour" placeholder="ingredientfour" tpe="text" name="ingredientfour">
-    </div>
-
-
-   <!--  <form id="ingredientone" method="post" name="ingredientone">
-             <label>ingredient One>:</label>
-                <br>
-             <input id="ingredientone" placeholder="ingredientone" type="text" name="ingredientone">
-             <br>
-    <form id="ingredienttwo" method="post" name="ingredienttwo">
-            <label>Ingredient Two>:</label>
-             <input id="ingredienttwo" placeholder="ingredienttwo" type="text" name="ingredienttwo">
-             <br>
-    <form id="ingredientthree" method="post" name="ingredientthree">
-            <label>Ingredient Three>:</label>
-             <input id="ingredientthree" placeholder="ingredientthree" type="text" name="ingredientthree">
-             <br>
-     <form id="ingredientfour" method="post" name="ingredientfour">
-            <label>Ingredient Four>:</label>        
-             <input id="ingredientfour" placeholder="ingredientfour" type="text" name="ingredientfour">
-             <br>
-      <form id="ingredientfive" method="post" name="ingredientfive">
-            <label>Ingredient Five>:</label>       
-             <input id="ingredientfive" placeholder="ingredientfive" tpe="text" name="ingredientfive">
-    </div>
- -->
-
-
-
-
-       <div class="col-lg-6">
+     <div class="col-lg-6">
              METHOD:<br>
-             <input type="text" name="method">
-             <br>
-             <input type="text" name="method">
-             <br>
-             <input type="text" name="method">
-             <br>
+                <textarea name="method" rows="10" cols="30"></textarea>
+        </div>
 
-             <div class="form-group">
-                <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+        <h2>Star Rating</h2>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+
+</div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+            </div> 
+
+        </form> 
+
+      </div>
+    </div>
+
+        <!---Pagination -->
+        <div class="row">
+            <div class="col-md-12">
+               <nav class="text-center">
+                <ul class="pagination pagination-lg">
+                 <li>
+                   <a href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                   </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li>
+                   <a href="#" aria-label="Next">
+                   <span aria-hidden="true">&raquo;</span>
+                   </a>
+                 </li>
+                </ul>
+              </nav>
             </div>
-        </form>
-   </div>
 
+          </div>
 
-    <footer class="fixed-bottom text-center footer-section">
-        <div class="footer-wrapper">
-            <div class="fit">
+        <!---Footer -->
+        
+     <footer>
+        <div class="container">
+          <div class="row">
+          <footer class="fixed-bottom text-center footer-section">
+            <div class="footer-wrapper">
+               <div class="fit">
                 <p> Email: tenilleswart@gmail.com
                 </p>
-            </div>
-            <div class="fit">
-                <p> Contact: 07947253223
-                </p>
-            </div>
+              </div>
             <div class="fit">
                 <p class="copy-right-text"> &copy; CopyRight
                 </p>
             </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-
+      </div>
     </footer>
 
 
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-</body>
+      </body>
+  </html>
 
-</html>
+        
+</div>
+
+
+
+    

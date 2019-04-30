@@ -1,74 +1,91 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect,  url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from werkzeug.utils import secure_filename
+
 import os
+import datetime
+import random
+import string
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/foodiesdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key='secretkey'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
+ERR_NO_FILE_SPECIFIED='error: no file specified'
+IMAGE_DIRECTORY='static/images'
 
 class Ingredient(db.Model):
+    __tablename__ = 'ingredient'
     ingredient_id = db.Column(db.Integer(), primary_key=True)
-    ingredient_name = db.Column(db.String(80))
-    ingredient_type = db.Column(db.String(50))
-    ingredient_quantity = db.Column(db.String(50))
+    ingredient_name = db.Column(db.String())
+    #ingredient_type = db.Column(db.String())
+    #ingredient_quantity = db.Column(db.String())
 
-    def __init__(self, ingredient_id, ingredient_name, ingredient_type, ingredient_quantity):
-     self.ingredient_id = ingredient_id
+    def __init__(self, ingredient_name
+      #, ingredient_type, 
+     # ingredient_quantity
+      ):
      self.ingredient_name = ingredient_name
-     self.ingredient_type = ingredient_type
-     self.ingredient_quantity = ingredient_quantity
+    # self.ingredient_type = ingredient_type
+    # self.ingredient_quantity = ingredient_quantity
 
 class Cuisine(db.Model):
+   __tablename__ = 'cuisine'
+   
    cuisine_id = db.Column(db.Integer(), primary_key=True)
-   cuisine_name = db.Column(db.String(50))
+   cuisine_name = db.Column(db.String())
 
-   def __init__(self, cuisine_id, cuisine_name):
-    self.cuisine_id = cuisine_id
+   def __init__(self, cuisine_name):
     self.cuisine_name = cuisine_name
 
 
 class Author(db.Model):
-   author_id = db.Column(db.Integer(), primary_key=True)
-   first_name = db.Column(db.String(50))
-   last_name = db.Column(db.String(50))
+   __tablename__ = 'author'
 
-   def __init__(self, author_id, first_name, last_name):
-    self.author_id = author_id
+   author_id = db.Column(db.Integer(), primary_key=True)
+   first_name = db.Column(db.String())
+   last_name = db.Column(db.String())
+
+   def __init__(self, first_name, last_name):
     self.first_name = first_name
     self.last_name = last_name
 
 class Recipe(db.Model):
+   __tablename__ = 'recipe'
+
    recipe_id = db.Column(db.Integer(), primary_key=True)
-   recipe_title = db.Column(db.String(90), unique=True)
-   recipe_description = db.Column(db.String(250))
+   recipe_title = db.Column(db.String(), unique=True)
+   recipe_description = db.Column(db.String())
    author_id = db.Column(db.Integer, db.ForeignKey(
    'author.author_id'), nullable=False)
    ingredient_id = db.Column(db.Integer, db.ForeignKey(
    'ingredient.ingredient_id'), nullable=False)
-   recipe_method = db.Column(db.String(500))
+   recipe_method = db.Column(db.String())
    recipe_photo = db.Column(db.String())
-   recipe_date = db.Column(db.String(10))
+   recipe_date = db.Column(db.Date, default=datetime.datetime.utcnow)
    recipe_rating = db.Column(db.Integer())
    cuisine_id = db.Column(db.Integer, db.ForeignKey(
    'cuisine.cuisine_id'), nullable=False)
 
-   def __init__(self, recipe_id, recipe_title, recipe_description, recipe_method, recipe_photo, recipe_date, recipe_rating):
-    self.recipe_id = recipe_id
+   def __init__(self, recipe_title, recipe_description, recipe_method, recipe_photo, recipe_date, recipe_rating):
     self.recipe_title = recipe_title
     self.recipe_description = recipe_description
     self.recipe_method = recipe_method
     self.recipe_photo = recipe_photo
     self.recipe_date = recipe_date
     self.recipe_rating = recipe_rating
+
+db.create_all()
+db.session.commit()
 
 
 @app.route('/')
@@ -80,11 +97,67 @@ def index():
 def addnew():
     return render_template('addnew.html') 
 
+
+@app.route('/allrecipes')
+def allrecipes():
+    return render_template('allrecipes.html')
+    
+def randstr():
+    '''' create random string of alpha numeric characters '''
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(30))
 @app.route('/addnew', methods=["GET", "POST"])
 def newrecipe(): 
     if request.method == "POST":
         print(request.form)
-        return render_template('allrecipes.html')
+
+        imagefile = request.files['recipe_image']
+ 
+        if imagefile.filename == '':
+          return ERR_NO_FILE_SPECIFIED
+
+        safefilename=secure_filename(randstr() + '-' + imagefile.filename)
+        imagepath='{}/{}'.format(IMAGE_DIRECTORY, safefilename)
+
+
+        first_name_request = request.form['authorname']
+        authorObject = Author(first_name = first_name_request, last_name = "fake last name")
+        db.session.add(authorObject)
+        db.session.commit()
+
+
+        ingredient_name_request =request.form['ingredients']
+        ingredientObject = Ingredient(ingredient_name = ingredient_name_request)
+        db.session.add(ingredientObject)
+        db.session.commit()
+
+
+        cuisineObject = Cuisine(cuisine_name = "mexican")
+        db.session.add(cuisineObject)
+        db.session.commit()
+
+
+        recipe_title_request = request.form['recipetitle']
+        recipe_photo_request = safefilename
+        recipe_description_request =  request.form['description']
+        recipe_method_request = request.form['method']
+        recipe_rating_request = 4
+
+        recipeObject = Recipe(recipe_title=recipe_title_request,
+          recipe_description=recipe_method_request,
+          author_id=authorObject.author_id,
+          ingredient_id=ingredientObject.ingredient_id,
+          recipe_method=recipe_method_request,
+          recipe_photo=recipe_photo_request,
+          recipe_rating=recipe_rating_request,
+          cuisine_id=cuisineObject.cuisine_id)
+         
+        
+        imagefile.save(imagepath)
+        db.session.add(recipeObject)
+        db.session.commit()
+
+        flash('Your Recipe is now Live!')
+        return render_template('recipe.html')
        # recipe_title=request.form['recipetitle']
 
 

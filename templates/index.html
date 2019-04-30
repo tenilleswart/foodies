@@ -13,7 +13,7 @@
 
 <body>
     <header>
- <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
+ <!--nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
@@ -57,11 +57,9 @@
         <div class="btn-wrapper">
             <button class="btn menu-button">RECIPES</button>
             <button class="btn menu-button"> <a href="{{ url_for('addnew') }}">ADD NEW RECIPE</a></button>
-            <button class="btn menu-button">ALL RECIPES</button>
-            <button class="btn menu-button">TOP CHEF</button>
+            <button class="btn menu-button"> <a href="{{ url_for('allrecipes') }}">ALL RECIPES</a></button>
             <button class="btn menu-button">TOP CHEF</button>
         </div>
-    </div>
     </div>
 
     <footer class="fixed-bottom text-center footer-section">
@@ -88,4 +86,4 @@
 
 </body>
 
-</html> s
+</html> 
