@@ -28,9 +28,7 @@ class Ingredient(db.Model):
     ingredient_id = db.Column(db.Integer(), primary_key=True)
     ingredient_name = db.Column(db.String())
     
-    def __init__(self, ingredient_name
-     
-      ):
+    def __init__(self, ingredient_name):
      self.ingredient_name = ingredient_name
 
 class Cuisine(db.Model):
@@ -99,14 +97,26 @@ def addnew():
 def allrecipes():
     return render_template('allrecipes.html')
 
-@app.route('/recipe/<recipe_id>')
-def recipe():
-    result=db.session.query(Recipe, Ingredient, Cuisine, Author)
-    .filter(Recipe.recipe_id==recipe_id)
-    .join(Author, Recipe.author_id==Author.author_id)
-    .join(Cuisine, Recipe.cuisine_id==Cuisine.cuisine_id)
-    .join(Ingredient, Recipe.ingredient_id==Ingredient.ingredient_id)
-    return render_template('recipe.html')   
+#    single_recipe = db.session.query(Recipe, Ingredient, Cuisine, Author)
+ #     .filter(Recipe.recipe_id == recipeId)
+#      .join(Author, Recipe.author_id==Author.author_id)
+  #    .join(Cuisine, Recipe.cuisine_id==Cuisine.cuisine_id)
+  #    .join(Ingredient, Recipe.ingredient_id==Ingredient.ingredient_id).first()
+  #  return single_recipe
+
+def get_single_recipe(recipeId):
+    single_recipe = db.session.query(Recipe, Author, Cuisine, Ingredient
+                                     ).filter(Recipe.recipe_id == recipeId
+                                              ).join(Author, Recipe.author_id == Author.author_id
+                                                     ).join(Cuisine, Recipe.cuisine_id == Cuisine.cuisine_id
+                                                            ).join(Ingredient, Recipe.ingredient_id == Ingredient.ingredient_id
+                                                                   ).first()
+    return single_recipe
+
+#@app.route('/recipe/<recipe_id>')
+#def recipe():
+    #result=
+   # return render_template('recipe.html')   
     
 def randstr():
     '''' create random string of alpha numeric characters '''
@@ -161,8 +171,9 @@ def newrecipe():
         imagefile.save(imagepath)
         db.session.add(recipeObject)
         db.session.commit()
-
+  
         flash('Your Recipe is now Live!')
+        result=get_single_recipe(recipeObject.recipe_id)
         return render_template('recipe.html')
     
 
