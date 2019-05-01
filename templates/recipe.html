@@ -69,35 +69,29 @@
             <div class="row">
               <div class="container">
                 <div class="col-sm-12">
-                    <h1> SALMON POKE BOWL</h1>
-                    <img src="images/salmon-poke.jpg">
-                    <p> The word poke is hawaian for pieces,poke bowls originated from using fresh caught fish cut into pieces added to a bowl of whatever you want.</p>
+                    <h1> {{result.Recipe.recipe_title}}</h1>
+                    <img src="/static/images/{{ result.Recipe.recipe_photo }}">
+                    <p> {{result.Recipe.recipe_description}}</p>
                     <section id="ingredients">
             <h3>Ingredients</h3>
             <p>Serves 2 people</p>
             <ul>
-                <li>200g fresh salmon cubed</li>
-                <li>1 cup of sushi rice</li>
-                <li> 1/2 cucumber</li>
-                <li>1 carrot</li>
-                <li>avocado chopped</li>
-                <li>seaweed chopped into rectangle sliver</li>
-                <li>4 tbsp soy sauce</li>
-                <li>2 tbsp sesame oil</li>
-                <li>1/2 tbsp rice vinegar</li>
-                <li>1/2 lime juiced</li>
+                <li>{{result.Ingredient.ingredient_name}}</li>
+               
             </ul>
         </section>
         <section>
             <h3>Preparation</h3>
             <ul>
-                <li>Combined soy sauce,sesame oil,rice vinegar and lime </li>
-                <li>Cube the salmon and pour half the sauce over to marinade</li>
-                <li>Cooked the sushi rice as per packet instructions</li>
-                <li>thinly slice the cucumber into sticks</li>
-                <li>thinly slice the carrot into sticks</li>
-                <li>Combine all ingredients in a bowl and spoon over sauce</li>
-                <li>Serve!</li>
+                <li>{{result.Recipe.recipe_method}}</li>
+               
+            </ul>
+        </section>
+         <section>
+            <h3>Author</h3>
+            <ul>
+                <li>{{result.Author.author_name}}</li>
+               
             </ul>
         </section>
         <h2>Star Rating</h2>

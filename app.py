@@ -174,7 +174,7 @@ def newrecipe():
   
         flash('Your Recipe is now Live!')
         result=get_single_recipe(recipeObject.recipe_id)
-        return render_template('recipe.html')
+        return render_template('recipe.html',result=result)
     
 
 
