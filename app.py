@@ -95,7 +95,9 @@ def addnew():
 
 @app.route('/allrecipes')
 def allrecipes():
-    return render_template('allrecipes.html')
+    results=[]
+    results=db.session.query(Recipe, Author, Ingredient, Cuisine).join(Author).join(Ingredient).join(Cuisine).all()
+    return render_template('allrecipes.html',results=results)
 
 #    single_recipe = db.session.query(Recipe, Ingredient, Cuisine, Author)
  #     .filter(Recipe.recipe_id == recipeId)
@@ -113,10 +115,10 @@ def get_single_recipe(recipeId):
                                                                    ).first()
     return single_recipe
 
-#@app.route('/recipe/<recipe_id>')
-#def recipe():
-    #result=
-   # return render_template('recipe.html')   
+@app.route('/allrecipes/<recipe_id>')
+def recipe(recipe_id):
+    result=get_single_recipe(recipe_id)
+    return render_template('recipe.html', result=result)   
     
 def randstr():
     '''' create random string of alpha numeric characters '''

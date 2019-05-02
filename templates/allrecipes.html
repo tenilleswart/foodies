@@ -21,7 +21,7 @@
         </div>
           <div class="nav navbar-nav navbar-right navbar_right">
                  <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
-                 <a href="#" class="btn btn-default">All Recipes</a>
+                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
                  <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
              </div> 
          </div> 
@@ -31,37 +31,39 @@
 
 <!--Main Content -->
 
+{% for result in results %} {% if loop.index % 2 != 0 %}
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
     <div class="recipe-box">
            <div class="box-image">
-               <a href="#"><img src="/static/images/salmon-poke.jpg" class="box-image" alt="salmon-poke">
+               <a href="#"><img src="/static/images/{{ result.Recipe.recipe_photo }}" class="box-image" alt="salmon-poke">
                </a>
            </div>
            <div class="box-content">
-               <h2><a href="#">Salmon Poke Bowl</a></h2>
+               <h2><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></h2>
                <div class="box-meta">
-                   By <a href="#">John Doe</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
+                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
                </div>
            </div>
         </div>
     </div>
+   {% else %}
     <div class="col-sm-4">
-     <div class="recipe-box">
+ <div class="recipe-box">
            <div class="box-image">
-               <a href="#"><img src="/static/images/ravioli.jpg" alt="ravioli">
+               <a href="#"><img src="/static/images/{{ result.Recipe.recipe_photo }}" class="box-image" alt="salmon-poke">
                </a>
            </div>
            <div class="box-content">
-               <h2><a href="#">Ravioli</a></h2>
+               <h2><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></h2>
                <div class="box-meta">
-                   By <a href="#">John Doe</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
+                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
                </div>
            </div>
         </div>
     </div>
-    <div class="col-sm-4">
+   <!--  <div class="col-sm-4">
     <div class="recipe-box">
            <div class="box-image">
                <a href="#"><img src="/static/images/Eton-Mess.jpg" alt="ravioli">
@@ -74,11 +76,11 @@
                </div>
            </div>
         </div>
-    </div>
+    </div> -->
   </div>
   <div class="row">
     <div class="col-sm-4" >
-    <div class="recipe-box">
+    <!-- <div class="recipe-box">
            <div class="box-image">
                <a href="#"><img src="/static/images/Summer-Cobb-Salad.jpg" alt="summer-cobb-salad">
                </a>
@@ -89,10 +91,10 @@
                    By <a href="#">John Doe</a> <i class="glyphicon glyphicon-time">           </i> <time>45 minutes</time>
                </div>
            </div>
-        </div>
+        </div> -->
     </div>
     <div class="col-sm-4">
-    <div class="recipe-box">
+   <!--  <div class="recipe-box">
            <div class="box-image">
                <a href="#"><img src="/static/images/Macroons.jpg" alt="macroons">
                </a>
@@ -103,8 +105,8 @@
                    By <a href="#">John Doe</a> <i class="glyphicon glyphicon-time">         </i> <time>45 minutes</time>
                </div>
            </div>
-        </div>
-    </div>
+        </div> -->
+<!--     </div>
     <div class="col-sm-4">
     <div class="recipe-box">
            <div class="box-image">
@@ -118,10 +120,12 @@
                </div>
            </div>
         </div>
-    </div>
+    </div> -->
   </div>
 </div>
-
+ {% endif %} {% if loop.index == 6 %}
+ {% endif %}
+ {% endfor %}
         <!---Pagination -->
         <div class="row">
             <div class="col-md-12">
