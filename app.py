@@ -25,7 +25,7 @@ manager.add_command('db', MigrateCommand)
 
 ERR_NO_FILE_SPECIFIED='error: no file specified'
 IMAGE_DIRECTORY='static/images'
-PER_PAGE=''
+PER_PAGE= 6
 
 class Ingredient(db.Model):
     __tablename__ = 'ingredient'
