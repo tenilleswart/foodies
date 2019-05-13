@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from werkzeug.utils import secure_filename
+from flask_paginate import Pagination, get_page_parameter
+from flask import Blueprint, abort
+from sqlalchemy.sql.expression import or_
 
 import os
 import datetime
@@ -22,6 +25,7 @@ manager.add_command('db', MigrateCommand)
 
 ERR_NO_FILE_SPECIFIED='error: no file specified'
 IMAGE_DIRECTORY='static/images'
+PER_PAGE=''
 
 class Ingredient(db.Model):
     __tablename__ = 'ingredient'
@@ -92,19 +96,31 @@ def index():
 def addnew():
     return render_template('addnew.html') 
 
+def get_results(offset, per_page, results):
+    return results[offset: offset + per_page]
 
 @app.route('/allrecipes')
 def allrecipes():
+    page = request.args.get(get_page_parameter(), type=int, default=1)
     results=[]
     results=db.session.query(Recipe, Author, Ingredient, Cuisine).join(Author).join(Ingredient).join(Cuisine).all()
-    return render_template('allrecipes.html',results=results)
+   
+    #offset=(page -1)*PER_PAGE
 
-#    single_recipe = db.session.query(Recipe, Ingredient, Cuisine, Author)
- #     .filter(Recipe.recipe_id == recipeId)
-#      .join(Author, Recipe.author_id==Author.author_id)
-  #    .join(Cuisine, Recipe.cuisine_id==Cuisine.cuisine_id)
-  #    .join(Ingredient, Recipe.ingredient_id==Ingredient.ingredient_id).first()
-  #  return single_recipe
+    pagination_results = get_results(1, PER_PAGE, results)
+
+    page_size=len(results)
+
+    print(results)
+     
+    print(per_page)
+    
+   #print(offset)
+
+    pagination=Pagination(page=page, per_page=PER_PAGE, total=page_size, css_framework='bootstrap3')
+
+    return render_template('allrecipes.html',results=pagination_results,per_page=PER_PAGE,pagination=pagination)
+
 
 def get_single_recipe(recipeId):
     single_recipe = db.session.query(Recipe, Author, Cuisine, Ingredient
