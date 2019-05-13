@@ -358,12 +358,48 @@ footer {
 	width: 100%;
 	border-top: 1px solid #ddd;
 	padding: 10px 0;
+	color: #ff6699;
 }
 
 footer p {
 	text-align: center;
 	margin: 5px 0;
 	color: #ff6699;
+}
+
+/*.footer-section {
+	text-align: center;
+	margin: 5px 0;
+	color: #ff6699;
+}
+
+/*RECIPE PAGE*/
+
+.rating {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.rating-input {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0 0 0 -16px;
+    opacity: 0;
+}
+
+.rating-star {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('/samples/star-rating/star.png') 0 -16px;
+}
+
+.rating-star:hover {
+    background-position: 0 0;
 }
 
 /*footer.footer-section {
