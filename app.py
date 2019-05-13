@@ -102,24 +102,24 @@ def get_results(offset, per_page, results):
 @app.route('/allrecipes')
 def allrecipes():
     page = request.args.get(get_page_parameter(), type=int, default=1)
-    results=[]
-    results=db.session.query(Recipe, Author, Ingredient, Cuisine).join(Author).join(Ingredient).join(Cuisine).all()
-   
-    #offset=(page -1)*PER_PAGE
-
-    pagination_results = get_results(1, PER_PAGE, results)
-
-    page_size=len(results)
-
+    results = []
+    results = db.session.query(Recipe, Author, Ingredient, Cuisine).join(
+        Author).join(Ingredient).join(Cuisine).all()
     print(results)
-     
-    print(per_page)
+    page_size = len(results)
+    offset = (page - 1) * PER_PAGE
+
+    pagination_results = get_results(offset, PER_PAGE, results)
+  
+    pagination = Pagination(page=page, per_page=PER_PAGE,
+                            total=page_size, css_framework='bootstrap3')
+
+    return render_template('allrecipes.html', results=pagination_results, page=page,
+                           per_page=PER_PAGE, pagination=pagination)
     
    #print(offset)
 
-    pagination=Pagination(page=page, per_page=PER_PAGE, total=page_size, css_framework='bootstrap3')
-
-    return render_template('allrecipes.html',results=pagination_results,per_page=PER_PAGE,pagination=pagination)
+   
 
 
 def get_single_recipe(recipeId):
