@@ -31,15 +31,21 @@
 
 <!--Main Content -->
 
+<br />
+
+<br />
+<br />
 <div class="container">
     <div class="row">
          <div class="col-lg-12">NEW RECIPE</div>
       <form id="recipeForm" method="POST" name="recipe" enctype="multipart/form-data">
-       <div class="col-lg-6">
+
+
+  <!---     <div class="col-lg-6">
         <!--<input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
         <small id="fileHelp" class="form-text text-muted">Select an image for this recipe</small> -->
 
-    </div>
+   <!-- </div> --->
 
      <div class="col-lg-6"> Image <br>
         <input type="file" id="file" name="file">
@@ -52,6 +58,8 @@
              <input id="recipetitle" placeholder="Recipe Title" type="text" name="recipetitle">
              <br>
     </div>
+
+
        <div class="col-lg-6"> 
              <label>AUTHOR NAME</label>
              <br>
@@ -68,6 +76,25 @@
              <br>
     </div>
 
+
+      <span class="rating">
+             <input type="radio" class="rating-input"
+             id="rating-input-1-5" name="rating-input-1" value="5">
+             <label for="rating-input-1-5" class="rating-star"></label>
+             <input type="radio" class="rating-input"
+             id="rating-input-1-4" name="rating-input-1" value="4">
+             <label for="rating-input-1-4" class="rating-star"></label>
+             <input type="radio" class="rating-input"
+             id="rating-input-1-3" name="rating-input-1" value="3">
+             <label for="rating-input-1-3" class="rating-star"></label>
+             <input type="radio" class="rating-input"
+             id="rating-input-1-2" name="rating-input-1" value="2">
+             <label for="rating-input-1-2" class="rating-star"></label>
+             <input type="radio" class="rating-input"
+             id="rating-input-1-1" name="rating-input-1" value="1">
+             <label for="rating-input-1-1" class="rating-star"></label>
+          </span>
+
     <div class="col-lg-6">
              DESCRIPTION:<br>
                 <textarea name="description" rows="10" cols="30"></textarea>
@@ -81,24 +108,6 @@
              METHOD:<br>
                 <textarea name="method" rows="10" cols="30"></textarea>
         </div>
-
-         <span class="rating">
-             <input type="radio" class="rating-input"
-             id="rating-input-1-5" name="rating-input-1">
-             <label for="rating-input-1-5" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-4" name="rating-input-1">
-             <label for="rating-input-1-4" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-3" name="rating-input-1">
-             <label for="rating-input-1-3" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-2" name="rating-input-1">
-             <label for="rating-input-1-2" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-1" name="rating-input-1">
-             <label for="rating-input-1-1" class="rating-star"></label>
-          </span>
 
 </div>
             <div class="form-group">

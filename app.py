@@ -174,8 +174,10 @@ def newrecipe():
         recipe_photo_request = safefilename
         recipe_description_request =  request.form['description']
         recipe_method_request = request.form['method']
-        recipe_rating_request = 4
+        recipe_rating_request = request.form['rating-input-1']
 
+        print(recipe_rating_request)
+        
         recipeObject = Recipe(recipe_title=recipe_title_request,
           recipe_description=recipe_method_request,
           author_id=authorObject.author_id,

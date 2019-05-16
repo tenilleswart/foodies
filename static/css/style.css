@@ -304,11 +304,24 @@ footer p {
     display: block;
     width: 16px;
     height: 16px;
-    background: url('/samples/star-rating/star.png') 0 -16px;
+    background: url('/static/images/star.png') 0 -16px;
 }
 
-.rating-star:hover {
+.rating-star:hover, 
+.rating-star:hover ~ .rating-star, 
+.rating-input:checked ~ .rating-star {
     background-position: 0 0;
+}
+
+.rating-star,
+.rating:hover .rating-star {
+	cursor: pointer;
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('/static/images/star.png') 0 -16px;
+
 }
 
 
@@ -331,5 +344,15 @@ body {
 
 .fa {
   font-size: 25px;
+}
+
+/* homepage */
+
+.btn-wrapper {
+
+	position: absolute;
+    top: 50%;
+    left: 35%;
+    text-align: center;
 }
 
