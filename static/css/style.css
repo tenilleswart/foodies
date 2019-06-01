@@ -1,4 +1,11 @@
+/*INDEX PAGE*/
 
+html, body{
+	position: relative;
+	/*min-height: 100%;*/
+	height: 100%;
+	margin: 0;
+}
 
 
 /*ALL RECIPES*/
@@ -356,3 +363,33 @@ body {
     text-align: center;
 }
 
+/* TOP CHEF PAGE */
+
+.bg {
+  /* The image used */
+  background-image: url("img_girl.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, .th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>RECIPES</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
+     <style>
+      body, html {
+       height: 100%;
+        margin: 0;
+        }
+</style>
+</head>
+
+<body>
+   <div class="bg">
+    <img src="/static/images/background-image.png">
+      </div>  
+    <header>
+ <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand navbar-brand-logo navbar_left" href="#"><img src="/static/images/logo-transparent2.png" class="image-responsive logo">
+              </a>
+        </div>
+          <div class="nav navbar-nav navbar-right navbar_right">
+                 <a href="#" class="btn btn-default">Home</a>
+                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
+                 <a href="#" class="btn btn-default">Add New</a>
+             </div> 
+         </div> 
+        </div>
+    </nav>
+</header>
+
+<!--Main Content -->
+
+<br />
+
+<br />
+<br />
+
+<h2>TOP CHEF</h2>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>No. of recipes</th>
+    <th>Star Rating Average</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>John Doe</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>Susan Sand</td>
+    <td>5</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Bo Jackman</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Lauren Cho</td>
+    <td>4</td>
+    <td>3</td>
+  </tr>
+</table>
+
+
+        <!---Pagination -->
+        <div class="row">
+            <div class="col-md-12">
+               <nav class="text-center">
+                <ul class="pagination pagination-lg">
+                 <li>
+                   <a href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                   </a>
+                  </li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li>
+                   <a href="#" aria-label="Next">
+                   <span aria-hidden="true">&raquo;</span>
+                   </a>
+                 </li>
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+
+        <!---Footer -->
+        
+     <footer>
+        <div class="container">
+          <div class="row">
+          <footer class="fixed-bottom text-center footer-section">
+            <div class="footer-wrapper">
+               <div class="fit">
+                <p> Email: tenilleswart@gmail.com
+                </p>
+              </div>
+            <div class="fit">
+                <p class="copy-right-text"> &copy; CopyRight
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+      </body>
+  </html>
+
+
+
+
+    
