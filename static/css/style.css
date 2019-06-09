@@ -276,6 +276,8 @@ ol.step > li::before {
 
 /*FOOTER*/
 
+
+
 .fixed-footer {
 	position: absolute;
     right: 0;
@@ -335,7 +337,7 @@ ol.step > li::before {
 
 
 
-* {
+*,*:before,*:after {
   box-sizing: border-box;
 }
 
