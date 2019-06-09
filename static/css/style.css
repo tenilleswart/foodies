@@ -106,6 +106,10 @@ img#logo {
     	width: 95px;
 }
 
+.transparent {
+  opacity:0.3;
+}
+
 .other-pages-logo {
 	margin-top: -45px;
 }
