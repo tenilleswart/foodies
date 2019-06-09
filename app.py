@@ -117,7 +117,9 @@ def allrecipes():
     return render_template('allrecipes.html', results=pagination_results, page=page,
                            per_page=PER_PAGE, pagination=pagination)
     
-   
+@app.route('/topchef')
+def topchef():
+    return render_template('topchef.html') 
 
    
 
