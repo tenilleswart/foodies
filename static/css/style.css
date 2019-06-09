@@ -284,13 +284,46 @@ ol.step > li::before {
     bottom: 0;
     left: 0;
     padding: 1rem;
-    text-align: center;
 }
 
 
 .fixed-footer p {
+	text-align: center;
 	color: #ff6699;
 }
+
+.sticky-footer {
+	height: 50px;
+    margin-top: -30px; 
+    margin-right: 34%;
+}
+
+
+.sticky-footer p {
+	text-align: center;
+	color: #ff6699;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.sticky-footer{
+    margin-right: 0;
+}
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+	.sticky-footer {
+    margin-right: 0;
+}
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.sticky-footer {
+    margin-right: 0;
+}
+}
+
 
 
 /*RECIPE PAGE*/
