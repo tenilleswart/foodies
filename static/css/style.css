@@ -335,7 +335,7 @@ ol.step > li::before {
 
 /*RECIPE PAGE*/
 
-.rating {
+/*--.rating {
     overflow: hidden;
     display: inline-block;
 }
@@ -377,6 +377,9 @@ ol.step > li::before {
 
 
 
+
+
+
 *,*:before,*:after {
   box-sizing: border-box;
 }
@@ -388,6 +391,58 @@ ol.step > li::before {
 
 .fa {
   font-size: 25px;
+} */
+
+* {
+	margin:0;
+	padding:0;
+}
+
+.starrating{
+height: 46px;
+    padding: 0 14px;
+    margin-right: 39%;
+
+}
+
+.starrating:not(:checked) > input {
+	position:absolute;
+	top: -9999px;
+
+}
+
+.starrating:not(:checked) > label {
+	float: right;
+	width: 1em;
+	overflow: hidden;
+	white-space:nowrap;
+	cursor: pointer;
+	font-size: 30px;
+	color: #ccc;
+
+}
+
+.starrating:not(:checked) > label:before {
+	content: '★ ';
+
+}
+
+.starrating > input:checked ~ label {
+	color: #ffc700;
+
+}
+
+.starrating:not(:checked) > label:hover, 
+.starrating:not(:checked) > label:hover ~ label {
+	color: #deb217;
+}
+
+.starrating > input:checked + label:hover, 
+.starrating > input:checked + label:hover ~ label,
+.starrating > input:checked ~ label:hover,
+.starrating > input:checked ~ label:hover ~ label,
+.starrating > label:hover ~ input:checked ~ label{
+	color: #c59b08;
 }
 
 /* homepage */
