@@ -155,8 +155,9 @@ def newrecipe():
         imagepath='{}/{}'.format(IMAGE_DIRECTORY, safefilename)
 
 
-        first_name_request = request.form['authorname']
-        authorObject = Author(first_name = first_name_request, last_name = "fake last name")
+        first_name_request = request.form['authorfirstname']
+        last_name_request = request.form['authorlastname']
+        authorObject = Author(first_name = first_name_request, last_name = last_name_request)
         db.session.add(authorObject)
         db.session.commit()
 
@@ -166,8 +167,8 @@ def newrecipe():
         db.session.add(ingredientObject)
         db.session.commit()
 
-
-        cuisineObject = Cuisine(cuisine_name = "mexican")
+        cuisine_name_request =request.form['cuisine']
+        cuisineObject = Cuisine(cuisine_name = cuisine_name_request)
         db.session.add(cuisineObject)
         db.session.commit()
 
