@@ -306,7 +306,6 @@ ol.step > li::before {
 .sticky-footer {
 	height: 50px;
     margin-top: -30px; 
-    margin-right: 34%;
 }
 
 
