@@ -423,3 +423,10 @@ td, .th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+/* RECIPE PAGE */
+
+img.img-size {
+	height: 250px;
+	width: 300px;
+}

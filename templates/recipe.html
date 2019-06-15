@@ -52,9 +52,17 @@
                 {% endif %}
                 {% endwith %}
       </div>
+
       <div class="row">
+        <div class="col-sm-12">
+           <h1> {{result.Recipe.recipe_title}}</h1>
+                    <img src="/static/images/{{ result.Recipe.recipe_photo }}" class="img-size">
+                    <p> {{result.Recipe.recipe_description}}</p>
+        </div>
       </div>
+
     </div>
+
     <br />
     <br />
     <br />
