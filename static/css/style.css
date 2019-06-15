@@ -333,7 +333,7 @@ ol.step > li::before {
 
 
 
-/*RECIPE PAGE*/
+/* ADD NEW RECIPE PAGE*/
 
 
 
@@ -341,14 +341,7 @@ ol.step > li::before {
   box-sizing: border-box;
 }
 
-.heading {
-  font-size: 25px;
-  margin-right: 25px;
-}
 
-.fa {
-  font-size: 25px;
-} */
 
 * {
 	margin:0;

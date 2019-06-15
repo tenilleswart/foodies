@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-    <title>RECIPES</title>
+    <title>Add New Recipe</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,16 +46,16 @@
     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="recipetitle" >Recipe Title</label>
          <input class="form-control" id="recipetitle" placeholder="Recipe Title" type="text" name="recipetitle" required>
-             <div class="invalid-feedback">
+            <!-- <div class="invalid-feedback">
                please provide recipe title
-            </div>
+            </div> -->
       </div>
       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="recipetitle">Author Name</label>
          <input class="form-control" id="authorfirstname" placeholder="First Name" type="text" name="authorfirstname" required>
-             <div class="invalid-feedback">
+           <!--  <div class="invalid-feedback">
                Please provide an Author name
-            </div>
+            </div> -->
             <input class="form-control" id="authorlastname" placeholder="Last Name" type="text" name="authorlastname">
       </div>
       <div class="clearfix"></div>
@@ -63,9 +63,12 @@
       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="image">Recipe Image</label>
          <input type="file" id="file" name="file" required>
-         <div class="invalid-feedback">
+         <p class="help-block">
+            select recipe image above
+         </p>
+       <!--  <div class="invalid-feedback">
                please select recipe image
-            </div>
+            </div> -->
       </div>
       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="description">Description</label>
@@ -76,42 +79,42 @@
 <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="ingredients">Ingredients</label>
          <textarea class="form-control" id="ingredients" placeholder="Ingredients" rows="10" cols="30" name="ingredients"></textarea>
-             <div class="invalid-feedback">
+           <!--  <div class="invalid-feedback">
                please provide ingredients
-            </div>
+            </div> -->
              </div>
       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="description">Method</label>
          <textarea class="form-control" id="method" placeholder="Method" rows="10" cols="30" name="method"></textarea>
-         <div class="invalid-feedback">
+       <!--  <div class="invalid-feedback">
                please provide recipe method
-            </div>
+            </div> -->
       </div>
       <div class="clearfix"></div>
 
       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="cuisine">Cuisine</label>
          <input class="form-control" id="cuisine" placeholder="Cuisine" type="text" name="cuisine" required>
-             <div class="invalid-feedback">
+            <!-- <div class="invalid-feedback">
                please provide a cuisine
-            </div>
+            </div> -->
       </div>
        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="rating">Star Rating</label>
       <div class="starrating">
           <input type="radio" id="star5" name="rating-input-1" value="5">
-             <label for="star5" title="text">5 starts</label>
+             <label for="star5" title="text">5 stars</label>
              <input type="radio" id="star4" name="rating-input-1" value="4">
              <label for="star4" title="text">4 stars</label>
              <input type="radio" id="star3" name="rating-input-1" value="3">
              <label for="star3" title="text">3 stars</label>
              <input type="radio" id=star2" name="rating-input-1" value="2">
-             <label for="star2" title="text">2 star</label>
+             <label for="star2" title="text">2 stars</label>
              <input type="radio" id="star1" name="rating-input-1" value="1" required>
-             <label for="star1" title="text">1 stars</label>
-               <div class="invalid-feedback">
+             <label for="star1" title="text">1 star</label>
+              <!-- <div class="invalid-feedback"
                select stars and rate your recipe
-            </div>
+            </div> -->
       </div>
         
       </div>
