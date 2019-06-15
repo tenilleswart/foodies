@@ -182,7 +182,7 @@ def newrecipe():
         print(recipe_rating_request)
         
         recipeObject = Recipe(recipe_title=recipe_title_request,
-          recipe_description=recipe_method_request,
+          recipe_description=recipe_description_request,
           author_id=authorObject.author_id,
           ingredient_id=ingredientObject.ingredient_id,
           recipe_method=recipe_method_request,

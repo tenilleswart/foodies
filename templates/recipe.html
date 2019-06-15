@@ -57,7 +57,9 @@
       <div class="col-sm-12">
        <h1> {{result.Recipe.recipe_title}}</h1>
        <img src="/static/images/{{ result.Recipe.recipe_photo }}" class="img-size">
-       <p> {{result.Recipe.recipe_description}}</p>
+       <br />
+       <br />
+       <p> "{{result.Recipe.recipe_description}}"</p>
        <section id="ingredients">
         <h3>Ingredients</h3>
         <h5>Serves 2 people</h5>
@@ -73,6 +75,14 @@
             <h3>Author</h3>
                 <span class="author-name">{{result.Author.first_name}} {{result.Author.last_name}}</span>
                
+        </section>
+        <section>
+          <h3>Rating</h3>
+          <div>
+            <span class="stars-container stars-{{result.Recipe.recipe_rating}}">
+             ★★★★★
+          </span>
+          </div>
         </section>
     </div>
   </div>
