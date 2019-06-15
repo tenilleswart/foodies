@@ -2,70 +2,86 @@
 <html lang="en-us">
 
 <head>
-    <title>Recipe</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 
 <body>
-    <header>
- <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
-            <div>
+  <header>
+   <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
+          <div>
             <img src="/static/images/logo-transparent2.png" class="other-pages-logo" id="logo">
           </div>
-              </a>
-        </div>
-          <div class="nav navbar-nav navbar-right navbar_right">
-                 <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
-                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
-                 <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
-                 <a href="{{ url_for('topchef') }}" class="btn btn-default">Top Chef</a>
-             </div> 
-         </div> 
-    </nav>
+        </a>
+      </div>
+      <div class="nav navbar-nav navbar-right navbar_right">
+       <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
+       <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
+       <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
+       <a href="{{ url_for('topchef') }}" class="btn btn-default">Top Chef</a>
+     </div> 
+   </div> 
+ </nav>
 </header>
 
 <!--Main Content -->
 <div class="container-fluid"></div>
-    <div class="img-responsive col-md-12">
-         <img src="/static/images/background.png" class="bg transparent">
-    </div> 
+<div class="img-responsive col-md-12">
+ <img src="/static/images/background.png" class="bg transparent">
+</div> 
 
-    <div class="text-center">
-      <div class="row">
-        {% with messages = get_flashed_messages(with_categories = true) %}
-               {% if messages %}
-               {% for category, message in messages %}
-                     <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
-                    {{message}}
-                </div>
-                   {% endfor %}
-                {% endif %}
-                {% endwith %}
+<div class="text-center">
+  <div class="row">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+        aria-hidden="true">×</span></button>
+        {{message}}
       </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-           <h1> {{result.Recipe.recipe_title}}</h1>
-                    <img src="/static/images/{{ result.Recipe.recipe_photo }}" class="img-size">
-                    <p> {{result.Recipe.recipe_description}}</p>
-        </div>
-      </div>
-
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
     </div>
 
-    <br />
-    <br />
-    <br />
+    <div class="row">
+      <div class="col-sm-12">
+       <h1> {{result.Recipe.recipe_title}}</h1>
+       <img src="/static/images/{{ result.Recipe.recipe_photo }}" class="img-size">
+       <p> {{result.Recipe.recipe_description}}</p>
+       <section id="ingredients">
+        <h3>Ingredients</h3>
+        <h5>Serves 2 people</h5>
+          <p>{{result.Ingredient.ingredient_name}}</p>
+
+      </section>
+       <section>
+            <h3>Preparation</h3>
+                <p>{{result.Recipe.recipe_method}}</p>
+               
+        </section>
+        <section>
+            <h3>Author</h3>
+                <span class="author-name">{{result.Author.first_name}} {{result.Author.last_name}}</span>
+               
+        </section>
+    </div>
+  </div>
+
+</div>
+
+<br />
+<br />
+<br />
 
 
    <!-- <div class="text-center background-image">
@@ -161,21 +177,21 @@
           </div> -->
 
 
-     <div class="sticky-footer">
+          <div class="sticky-footer">
             <div class="fit">
-                <p> Email: tenilleswart@gmail.com
-                </p>
+              <p> Email: tenilleswart@gmail.com
+              </p>
             </div>
             <div class="fit">
-                <p> Contact: 07947253223
-                </p>
+              <p> Contact: 07947253223
+              </p>
             </div>
             <div class="fit">
-                <p class="copy-right-text"> &copy; CopyRight
-                </p>
+              <p class="copy-right-text"> &copy; CopyRight
+              </p>
             </div>
-        </div> 
+          </div> 
 
-</body>
+        </body>
 
-</html>
+        </html>

@@ -430,3 +430,15 @@ img.img-size {
 	height: 250px;
 	width: 300px;
 }
+
+
+.author-name {
+	font-weight: bold;
+    font-style: italic;
+    font-family: cursive;
+    color:#f82191;
+}
+
+
+
+
