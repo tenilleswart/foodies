@@ -75,8 +75,9 @@ class Recipe(db.Model):
    recipe_serving = db.Column(db.Integer())
    recipe_time_hours = db.Column(db.Integer())
    recipe_time_minutes = db.Column(db.Integer())
+   recipe_catagory = db.Column(db.String())
 
-   def __init__(self, recipe_title, recipe_description, recipe_method, author_id, ingredient_id, cuisine_id, recipe_photo, recipe_rating, recipe_serving, recipe_time_hours, recipe_time_minutes):
+   def __init__(self, recipe_title, recipe_description, recipe_method, author_id, ingredient_id, cuisine_id, recipe_photo, recipe_rating, recipe_serving, recipe_time_hours, recipe_time_minutes, recipe_catagory):
     self.recipe_title = recipe_title
     self.recipe_description = recipe_description
     self.recipe_method = recipe_method
@@ -88,6 +89,7 @@ class Recipe(db.Model):
     self.recipe_serving = recipe_serving
     self.recipe_time_hours = recipe_time_hours
     self.recipe_time_minutes = recipe_time_minutes
+    self.recipe_catagory = recipe_catagory
 
 db.create_all()
 db.session.commit()
@@ -185,8 +187,9 @@ def newrecipe():
         recipe_method_request = request.form['method']
         recipe_rating_request = request.form['rating-input-1']
         recipe_serving_request = request.form['serving']
-        recipe_time_hours = request.form['hours']
-        recipe_time_minutes = request.form['minutes']
+        recipe_time_hours_request = request.form.get('hours')
+        recipe_time_minutes_request = request.form.get('minutes')
+        recipe_catagory_request = request.form.get('catagory')
 
         print(recipe_rating_request)
         
@@ -198,8 +201,9 @@ def newrecipe():
           recipe_photo=recipe_photo_request,
           recipe_rating=recipe_rating_request,
           recipe_serving=recipe_serving_request,
-          recipe_time_hours=recipe_time_hours,
-          recipe_time_minutes=recipe_time_minutes,
+          recipe_time_hours=recipe_time_hours_request,
+          recipe_time_minutes=recipe_time_minutes_request,
+          recipe_catagory=recipe_catagory_request,
           cuisine_id=cuisineObject.cuisine_id)
         
         imagefile.save(imagepath)
