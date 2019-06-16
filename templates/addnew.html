@@ -2,41 +2,41 @@
 <html lang="en-us">
 
 <head>
-    <title>Add New Recipe</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add New Recipe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 
 <body>
-    <header>
- <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
-            <div>
+  <header>
+   <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-brand-logo navbar_left" href="#">
+          <div>
             <img src="/static/images/logo-transparent2.png" class="other-pages-logo" id="logo">
           </div>
-              </a>
-        </div>
-          <div class="nav navbar-nav navbar-right navbar_right">
-                 <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
-                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
-                 <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
-                 <a href="{{ url_for('topchef') }}" class="btn btn-default">Top Chef</a>
-             </div> 
-         </div> 
-    </nav>
+        </a>
+      </div>
+      <div class="nav navbar-nav navbar-right navbar_right">
+       <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
+       <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
+       <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
+       <a href="{{ url_for('topchef') }}" class="btn btn-default">Top Chef</a>
+     </div> 
+   </div> 
+ </nav>
 </header>
 
 <!--Main Content -->
 <div class="container-fluid"></div>
-    <div class="img-responsive col-md-12">
-         <img src="/static/images/background.png" class="bg transparent">
-    </div> 
+<div class="img-responsive col-md-12">
+ <img src="/static/images/background.png" class="bg transparent">
+</div> 
 
 <div class="container">
   <div class="row">
@@ -45,102 +45,142 @@
 
     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="recipetitle" >Recipe Title</label>
-         <input class="form-control" id="recipetitle" placeholder="Recipe Title" type="text" name="recipetitle" required>
-            
-      </div>
-      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <input class="form-control" id="recipetitle" placeholder="Recipe Title" type="text" name="recipetitle" required>
+
+    </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <label for="recipetitle" >Serves</label>
+      <select class="form-control short-input" required>
+        <option value="1" id="serving" name="serving" >1</option>
+        <option value="2" id="serving" name="serving" >2</option>
+        <option value="3" id="serving" name="serving" >3</option>
+        <option value="4" id="serving" name="serving">4</option>
+        <option value="5" id="serving" name="serving" >5</option>
+        <option value="6" id="serving" name="serving" >6</option>
+        <option value="7" id="serving" name="serving" >7</option>
+        <option value="8" id="serving" name="serving" >8</option>
+        <option value="9" id="serving" name="serving" >9</option>
+        <option value="10" id="serving" name="serving" >10</option>
+      </select>
+      <!-- <input class="form-control" id="serving" placeholder="No. of servings" type="text" name="serving" required> -->
+    </div>
+
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="recipetitle">Author Name</label>
-         <input class="form-control" id="authorfirstname" placeholder="First Name" type="text" name="authorfirstname" required>
-           
+      <input class="form-control" id="authorfirstname" placeholder="First Name" type="text" name="authorfirstname" required>
 
-            <input class="form-control" id="authorlastname" placeholder="Last Name" type="text" name="authorlastname">
-      </div>
-      <div class="clearfix"></div>
 
-      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <input class="form-control" id="authorlastname" placeholder="Last Name" type="text" name="authorlastname">
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="image">Recipe Image</label>
-         <input type="file" id="file" name="file" required>
-         <p class="help-block">
-            select recipe image above
-         </p>
-       
+      <input type="file" id="file" name="file" required>
+      <p class="help-block">
+        select recipe image above
+      </p>
+
+    </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <label for="recipetitle" >Time taken</label>
+      <div class="icon-box">
+
+      <div class="icon icon__danger">
+        <div class="tooltip tooltip__dang">
+          This is DANGER tooltip!
+        </div>
+        <svg viewBox="0 0 24 24">
+          <path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M13,17H11V15H13V17M13,13H11V7H13V13Z"></path>
+        </svg>
       </div>
-      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+    </div>
+
+    <div>
+      <input class="form-control short-input col-xs-5" id="timetaken" placeholder="hrs" type="text" name="timetaken" required>
+    </div>
+    <div>
+      <input class="form-control short-input col-xs-5" id="timetaken" placeholder="min" type="text" name="timetaken" required>
+    </div>
+    </div>
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="description">Description</label>
-         <textarea class="form-control" id="description" placeholder="Description" rows="10" cols="30" name="description"></textarea>
-      </div>
-      <div class="clearfix"></div>
+      <textarea class="form-control" id="description" placeholder="Description" rows="10" cols="30" name="description"></textarea>
+    </div>
+    <div class="clearfix"></div>
 
-<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="ingredients">Ingredients</label>
-         <textarea class="form-control" id="ingredients" placeholder="Ingredients" rows="10" cols="30" name="ingredients"></textarea>
-          
-             </div>
-      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
-      <label for="description">Method</label>
-         <textarea class="form-control" id="method" placeholder="Method" rows="10" cols="30" name="method"></textarea>
-       
-      </div>
-      <div class="clearfix"></div>
+      <textarea class="form-control" id="ingredients" placeholder="Ingredients" rows="10" cols="30" name="ingredients"></textarea>
 
-      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+    </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <label for="description">Method</label>
+      <textarea class="form-control" id="method" placeholder="Method" rows="10" cols="30" name="method"></textarea>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="cuisine">Cuisine</label>
-         <input class="form-control" id="cuisine" placeholder="Cuisine" type="text" name="cuisine" required>
-            
-      </div>
-       <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <input class="form-control" id="cuisine" placeholder="Cuisine" type="text" name="cuisine" required>
+
+    </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="rating">Star Rating</label>
       <div class="starrating">
-          <input type="radio" id="star5" name="rating-input-1" value="5">
-             <label for="star5" title="text">5 stars</label>
-             <input type="radio" id="star4" name="rating-input-1" value="4">
-             <label for="star4" title="text">4 stars</label>
-             <input type="radio" id="star3" name="rating-input-1" value="3">
-             <label for="star3" title="text">3 stars</label>
-             <input type="radio" id=star2" name="rating-input-1" value="2">
-             <label for="star2" title="text">2 stars</label>
-             <input type="radio" id="star1" name="rating-input-1" value="1" required>
-             <label for="star1" title="text">1 star</label>
-              
-      </div>
-        
-      </div>
-        <div class="clearfix"></div>
-         <div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
-                <button type="submit" class="btn btn-default" id="sendMessageButton">Submit</button>
-            </div> 
+        <input type="radio" id="star5" name="rating-input-1" value="5">
+        <label for="star5" title="text">5 stars</label>
+        <input type="radio" id="star4" name="rating-input-1" value="4">
+        <label for="star4" title="text">4 stars</label>
+        <input type="radio" id="star3" name="rating-input-1" value="3">
+        <label for="star3" title="text">3 stars</label>
+        <input type="radio" id=star2" name="rating-input-1" value="2">
+        <label for="star2" title="text">2 stars</label>
+        <input type="radio" id="star1" name="rating-input-1" value="1" required>
+        <label for="star1" title="text">1 star</label>
 
-   </form> 
-     <div class="clearfix"></div>
-     <br /> <br />
+      </div>
 
-  </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <button type="submit" class="btn btn-default" id="sendMessageButton">Submit</button>
+    </div> 
+
+  </form> 
+  <div class="clearfix"></div>
+  <br /> <br />
+
 </div>
-    
-
-        <!---Footer -->
-        
-     <div class="sticky-footer">
-            <div class="fit">
-                <p> Email: tenilleswart@gmail.com
-                </p>
-            </div>
-            <div class="fit">
-                <p> Contact: 07947253223
-                </p>
-            </div>
-            <div class="fit">
-                <p class="copy-right-text"> &copy; CopyRight
-                </p>
-            </div>
-        </div> 
-    
+</div>
 
 
-      </body>
-  </html>
+<!---Footer -->
+
+<div class="sticky-footer">
+  <div class="fit">
+    <p> Email: tenilleswart@gmail.com
+    </p>
+  </div>
+  <div class="fit">
+    <p> Contact: 07947253223
+    </p>
+  </div>
+  <div class="fit">
+    <p class="copy-right-text"> &copy; CopyRight
+    </p>
+  </div>
+</div> 
 
 
 
+</body>
+</html>
 
-    
+
+
+
+
