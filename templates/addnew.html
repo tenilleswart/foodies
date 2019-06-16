@@ -98,10 +98,42 @@
     </div>
 
     <div>
-      <input class="form-control short-input col-xs-5" id="timetaken" placeholder="hrs" type="text" name="timetaken" required>
+      <!--<input class="form-control short-input col-xs-5" id="timetaken" placeholder="hrs" type="text" name="timetaken" required> -->
+      <select class="form-control short-input col-xs-5" required>
+        <option>hrs</option>
+        <option value="1" id="hours" name="hours" >1</option>
+        <option value="2" id="hours" name="hours">2</option>
+        <option value="3" id="hours" name="hours">3</option>
+        <option value="4" id="hours" name="hours">4</option>
+        <option value="5" id="hours" name="hours">5</option>
+        <option value="6" id="hours" name="hours">6</option>
+        <option value="7" id="hours" name="hours">7</option>
+        <option value="8" id="hours" name="hours">8</option>
+        <option value="9" id="hours" name="hours">9</option>
+        <option value="10" id="hours" name="hours">10</option>
+        <option value="11" id="hours" name="hours">11</option>
+        <option value="12" id="hours" name="hours">12</option>
+        
+      </select>
     </div>
     <div>
-      <input class="form-control short-input col-xs-5" id="timetaken" placeholder="min" type="text" name="timetaken" required>
+     <!-- <input class="form-control short-input col-xs-5" id="timetaken" placeholder="min" type="text" name="timetaken" required> -->
+     <select class="form-control short-input col-xs-5" required>
+        <option>min</option>
+        <option value="0" id="minutes" name="minutes">0</option>
+        <option value="5" id="minutes" name="minutes">5</option>
+        <option value="10" id="minutes" name="minutes">10</option>
+        <option value="15" id="minutes" name="minutes">15</option>
+        <option value="20" id="minutes" name="minutes">20</option>
+        <option value="25" id="minutes" name="minutes">25</option>
+        <option value="30" id="minutes" name="minutes">30</option>
+        <option value="35" id="minutes" name="minutes">35</option>
+        <option value="40" id="minutes" name="minutes">40</option>
+        <option value="45" id="minutes" name="minutes">45</option>
+        <option value="50" id="minutes" name="minutes">50</option>
+        <option value="55" id="minutes" name="minutes">55</option>
+        
+      </select>
     </div>
     </div>
 
@@ -111,16 +143,31 @@
     </div>
     <div class="clearfix"></div>
 
-    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+      <label for="catagory" >Catagory</label>
+      <select class="form-control short-input" required>
+        <option value="breakfast" id="catagory" name="catagory" >Breakfast</option>
+        <option value="lunch" id="catagory" name="catagory" >Lunch</option>
+        <option value="dinner" id="catagory" name="catagory" >Dinner</option>
+        <option value="dessert" id="catagory" name="catagory" >Dessert</option>
+        <option value="drinks" id="catagory" name="catagory" >Drinks</option>
+      </select>
+      <!-- <input class="form-control" id="serving" placeholder="No. of servings" type="text" name="serving" required> -->
+    </div>
+    
+     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="ingredients">Ingredients</label>
       <textarea class="form-control" id="ingredients" placeholder="Ingredients" rows="10" cols="30" name="ingredients"></textarea>
 
     </div>
+    
     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
       <label for="description">Method</label>
       <textarea class="form-control" id="method" placeholder="Method" rows="10" cols="30" name="method"></textarea>
 
     </div>
+
+    
     <div class="clearfix"></div>
 
     <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
