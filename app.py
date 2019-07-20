@@ -127,7 +127,23 @@ def allrecipes():
     
 @app.route('/topchef')
 def topchef():
-    return render_template('topchef.html') 
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    results = []
+    results = db.session.query(Recipe, Author, Ingredient, Cuisine).join(
+        Author).join(Ingredient).join(Cuisine).order_by(Recipe.recipe_rating.desc()).all()
+    print(results)
+    #ordered_results = result_
+    page_size = len(results)
+    offset = (page - 1) * 10
+
+    pagination_results = get_results(offset, 10, results)
+  
+    pagination = Pagination(page=page, per_page=10,
+                            total=page_size, css_framework='bootstrap3')
+
+    return render_template('topchef.html', results=pagination_results, page=page,
+                           per_page=10, pagination=pagination)
+     
 
    
 

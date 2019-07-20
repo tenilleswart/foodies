@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-    <title>RECIPES</title>
+    <title>TOP RECIPES</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,9 +19,6 @@
 </head>
 
 <body>
-   <div class="bg">
-    <img src="/static/images/background-image.png">
-      </div>  
      <header>
  <nav class="navbar navbar-fixed-top navbar-transparent" role="navigation">
       <div class="container">
@@ -46,44 +43,40 @@
          <img src="/static/images/background.png" class="bg transparent">
     </div>
 <div class="container">
-<h2>TOP CHEF</h2>
+<h2>TOP RECIPE</h2>
 
 <table>
   <tr>
     <th>Author</th>
-    <th>No. of recipes</th>
+    <th>Recipe Names</th>
     <th>Star Rating Average</th>
   </tr>
+ {% for result in results %} 
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>John Doe</td>
-    <td>2</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>Susan Sand</td>
-    <td>5</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>Bo Jackman</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>Lauren Cho</td>
-    <td>4</td>
-    <td>3</td>
+    <td>{{result.Author.first_name}} {{result.Author.last_name}}</td>
+    <td><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></td>
+    <td><span class="stars-container stars-{{result.Recipe.recipe_rating}}">
+             ★★★★★
+          </span></td>
   </tr>
 </table>
+ {% endfor %}
+
+  
 
 
         <!---Pagination -->
         <div class="row">
+            <div class="col-md-12">
+               <nav class="text-center">
+                <ul class="pagination pagination-lg">
+                 {{ pagination.links }}
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+       <!-- <div class="row">
             <div class="col-md-12">
                <nav class="text-center">
                 <ul class="pagination pagination-lg">
@@ -106,7 +99,8 @@
               </nav>
             </div>
 
-          </div>
+          </div> -->
+
 
         <!---Footer -->
         
