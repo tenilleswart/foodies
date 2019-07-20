@@ -73,8 +73,8 @@ class Recipe(db.Model):
    cuisine_id = db.Column(db.Integer, db.ForeignKey(
    'cuisine.cuisine_id'), nullable=False)
    recipe_serving = db.Column(db.Integer())
-   recipe_time_hours = db.Column(db.Integer())
-   recipe_time_minutes = db.Column(db.Integer())
+   recipe_time_hours = db.Column(db.Integer(), default=0)
+   recipe_time_minutes = db.Column(db.Integer(), default=0)
    recipe_catagory = db.Column(db.String())
 
    def __init__(self, recipe_title, recipe_description, recipe_method, author_id, ingredient_id, cuisine_id, recipe_photo, recipe_rating, recipe_serving, recipe_time_hours, recipe_time_minutes, recipe_catagory):
@@ -193,6 +193,12 @@ def newrecipe():
 
         print(recipe_rating_request)
         
+        if recipe_time_hours_request == 'hrs':
+          recipe_time_hours_request = 0
+          
+        if recipe_time_minutes_request == 'mins':
+          recipe_time_minutes_request = 0
+
         recipeObject = Recipe(recipe_title=recipe_title_request,
           recipe_description=recipe_description_request,
           author_id=authorObject.author_id,

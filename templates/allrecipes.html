@@ -51,7 +51,7 @@
            <div class="box-content">
                <h2><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></h2>
                <div class="box-meta">
-                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
+                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time> {{result.Recipe.recipe_time_hours}} hours {{result.Recipe.recipe_time_minutes}} minutes</time>
                </div>
            </div>
         </div>
@@ -66,7 +66,7 @@
            <div class="box-content">
                <h2><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></h2>
                <div class="box-meta">
-                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time>45 minutes</time>
+                   By <a href="#">{{result.Author.first_name}}</a> <i class="glyphicon glyphicon-time"></i> <time>{{result.Recipe.recipe_time_hours}} hours {{result.Recipe.recipe_time_minutes}} minutes</time>
                </div>
            </div>
         </div>

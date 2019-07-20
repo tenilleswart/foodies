@@ -62,7 +62,7 @@
        <p> "{{result.Recipe.recipe_description}}"</p>
        <section id="ingredients">
         <h3>Ingredients</h3>
-        <h5>Serves 2 people</h5>
+        <h5>Serves:  {{result.Recipe.recipe_serving}} </h5>
           <p>{{result.Ingredient.ingredient_name}}</p>
 
       </section>
@@ -92,100 +92,6 @@
 <br />
 <br />
 <br />
-
-
-   <!-- <div class="text-center background-image">
-        <img class="img-responsive center-block" src="images/background-image.png">
-        <div class="centered">
-                 <div>
-              {% with messages = get_flashed_messages(with_categories = true) %}
-               {% if messages %}
-               {% for category, message in messages %}
-                     <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">×</span></button>
-                    {{message}}
-                </div>
-                   {% endfor %}
-                {% endif %}
-                {% endwith %}
-          </div>
-            <div class="row">
-              <div class="container">
-                <div class="col-sm-12">
-                    <h1> {{result.Recipe.recipe_title}}</h1>
-                    <img src="/static/images/{{ result.Recipe.recipe_photo }}">
-                    <p> {{result.Recipe.recipe_description}}</p>
-                    <section id="ingredients">
-            <h3>Ingredients</h3>
-            <p>Serves 2 people</p>
-            <ul>
-                <li>{{result.Ingredient.ingredient_name}}</li>
-               
-            </ul>
-        </section>
-        <section>
-            <h3>Preparation</h3>
-            <ul>
-                <li>{{result.Recipe.recipe_method}}</li>
-               
-            </ul>
-        </section>
-         <section>
-            <h3>Author</h3>
-            <ul>
-                <li>{{result.Author.author_name}}</li>
-               
-            </ul>
-        </section>
-        
-        <span class="rating">
-             <input type="radio" class="rating-input"
-             id="rating-input-1-5" name="rating-input-1">
-             <label for="rating-input-1-5" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-4" name="rating-input-1">
-             <label for="rating-input-1-4" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-3" name="rating-input-1">
-             <label for="rating-input-1-3" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-2" name="rating-input-1">
-             <label for="rating-input-1-2" class="rating-star"></label>
-             <input type="radio" class="rating-input"
-             id="rating-input-1-1" name="rating-input-1">
-             <label for="rating-input-1-1" class="rating-star"></label>
-          </span>
-          
-            </div>
-        </div>
-    </div>
-
-     <div class="row">
-            <div class="col-md-12">
-               <nav class="text-center">
-                <ul class="pagination pagination-lg">
-                 <li>
-                   <a href="#" aria-label="Previous">
-                     <span aria-hidden="true">&laquo;</span>
-                   </a>
-                  </li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li>
-                   <a href="#" aria-label="Next">
-                   <span aria-hidden="true">&raquo;</span>
-                   </a>
-                 </li>
-                </ul>
-              </nav>
-            </div>
-
-          </div> -->
-
 
           <div class="sticky-footer">
             <div class="fit">
