@@ -43,8 +43,10 @@
          <img src="/static/images/background.png" class="bg transparent">
     </div>
 <div class="container">
-<h2>TOP RECIPE</h2>
+<h2>TOP RECIPES</h2>
 
+<P>JGHGJHKHSJGHKSDGJDGHKDHGJDHGDJKGHDKJGH</P>
+<br/>
 <table>
   <tr>
     <th>Author</th>
@@ -52,15 +54,16 @@
     <th>Star Rating Average</th>
   </tr>
  {% for result in results %} 
-  <tr>
+  <trss>
     <td>{{result.Author.first_name}} {{result.Author.last_name}}</td>
     <td><a href="/allrecipes/{{result.Recipe.recipe_id}}">{{result.Recipe.recipe_title}}</a></td>
     <td><span class="stars-container stars-{{result.Recipe.recipe_rating}}">
              ★★★★★
           </span></td>
   </tr>
+   {% endfor %}
 </table>
- {% endfor %}
+
 
   
 
