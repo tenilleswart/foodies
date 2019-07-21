@@ -26,6 +26,7 @@ manager.add_command('db', MigrateCommand)
 ERR_NO_FILE_SPECIFIED='error: no file specified'
 IMAGE_DIRECTORY='static/images'
 PER_PAGE= 6
+TOP_CHEF_PER_PAGE= 10
 
 class Ingredient(db.Model):
     __tablename__ = 'ingredient'
@@ -134,15 +135,15 @@ def topchef():
     print(results)
     #ordered_results = result_
     page_size = len(results)
-    offset = (page - 1) * 10
+    offset = (page - 1) * TOP_CHEF_PER_PAGE
 
-    pagination_results = get_results(offset, 10, results)
+    pagination_results = get_results(offset, TOP_CHEF_PER_PAGE, results)
   
-    pagination = Pagination(page=page, per_page=10,
+    pagination = Pagination(page=page, per_page=TOP_CHEF_PER_PAGE,
                             total=page_size, css_framework='bootstrap3')
 
     return render_template('topchef.html', results=pagination_results, page=page,
-                           per_page=10, pagination=pagination)
+                           per_page=TOP_CHEF_PER_PAGE, pagination=pagination)
      
 
    
