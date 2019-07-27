@@ -40,32 +40,21 @@
          <img src="/static/images/background.png" class="bg transparent">
     </div>
 
-<form id="recipe_category" method="POST" name="recipe_category" enctype="multipart/form-data">
-   <select name="catagory" class="form-control short-input" required>
-        <option value="breakfast"><a href="/allrecipes/breakfast">Action</a></option>
-        <option value="/allrecipes/lunch"><a href="/allrecipes/breakfast">Lunch</a></option>
-        <option value="/allrecipes/dinner">Dinner</option>
-        <option value="/allrecipes/dessert">Dessert</option>
-        <option value="/allrecipes/drinks">Drinks</option>
-      </select>
-  <input type="submit" value="Submit">
-</form>
 
-   <div class="col-sm-12">
- <div class="catagories">
-    <label for="catagory" >Catagory</label>
-      <select name="catagory" class="form-control short-input" required>
-        <option value="breakfast"><a href="/allrecipes/breakfast">Action</a></option>
-        <option value="/allrecipes/lunch"><a href="/allrecipes/breakfast">Lunch</a></option>
-        <option value="/allrecipes/dinner">Dinner</option>
-        <option value="/allrecipes/dessert">Dessert</option>
-        <option value="/allrecipes/drinks">Drinks</option>
-      </select>
-        </div>
-    </div>
 
-<div>
-</div>
+<ul>
+  <li>
+    <a href="#">Categories</a>
+    <ul class="dropdown">
+      <li><a href="/recipe/category/breakfast">Breakfast</a></li>
+      <li><a href="/recipe/category/breakfast">Lunch</a></li>
+      <li><a href="/recipe/category/breakfast">Dinner</a></li>
+      <li><a href="/recipe/category/breakfast">Dessert</a></li>
+      <li><a href="/recipe/category/breakfast">Drinks</a></li>
+    </ul>
+  </li>
+
+</ul>
 
 {% for result in results %} {% if loop.index % 2 != 0 %}
 <div class="container">
