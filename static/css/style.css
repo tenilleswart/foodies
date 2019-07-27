@@ -54,7 +54,10 @@ body {
 	background-size:cover;
 }
 
-
+.catagories{
+	margin-bottom: 25px;
+	
+}
 /*===Navbar ===*/
 
 .logo {

@@ -161,11 +161,23 @@ def get_single_recipe(recipeId):
 @app.route('/allrecipes/<recipe_id>')
 def recipe(recipe_id):
     result=get_single_recipe(recipe_id)
-    return render_template('recipe.html', result=result)   
+    return render_template('recipe.html', result=result) 
+
+#@app.route('/allrecipescategory/<category>')
+#def recipe_category(category):
+    #result=db.session.query(Recipe, Author, Cuisine, Ingredient
+                                    # ).filter(Recipe.recipe_catagory == category
+                                            #  ).join(Author, Recipe.author_id == Author.author_id
+                                                   #  ).join(Cuisine, Recipe.cuisine_id == Cuisine.cuisine_id
+                                                           # ).join(Ingredient, Recipe.ingredient_id == Ingredient.ingredient_id
+                                                                  # ).all()
+    #return render_template('allrecipes.html', result=result)  
     
 def randstr():
     '''' create random string of alpha numeric characters '''
     return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(30))
+
+
 @app.route('/addnew', methods=["GET", "POST"])
 def newrecipe(): 
     if request.method == "POST":

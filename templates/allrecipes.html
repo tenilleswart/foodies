@@ -24,7 +24,8 @@
         </div>
           <div class="nav navbar-nav navbar-right navbar_right">
                  <a href="{{ url_for('index') }}" class="btn btn-default">Home</a>
-                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes</a>
+                 <a href="{{ url_for('allrecipes') }}" class="btn btn-default">All Recipes
+                 </a>
                  <a href="{{ url_for('addnew') }}" class="btn btn-default">Add New</a>
                  <a href="{{ url_for('topchef') }}" class="btn btn-default">Top Chef</a>
              </div> 
@@ -38,6 +39,33 @@
     <div class="img-responsive col-md-12">
          <img src="/static/images/background.png" class="bg transparent">
     </div>
+
+<form id="recipe_category" method="POST" name="recipe_category" enctype="multipart/form-data">
+   <select name="catagory" class="form-control short-input" required>
+        <option value="breakfast"><a href="/allrecipes/breakfast">Action</a></option>
+        <option value="/allrecipes/lunch"><a href="/allrecipes/breakfast">Lunch</a></option>
+        <option value="/allrecipes/dinner">Dinner</option>
+        <option value="/allrecipes/dessert">Dessert</option>
+        <option value="/allrecipes/drinks">Drinks</option>
+      </select>
+  <input type="submit" value="Submit">
+</form>
+
+   <div class="col-sm-12">
+ <div class="catagories">
+    <label for="catagory" >Catagory</label>
+      <select name="catagory" class="form-control short-input" required>
+        <option value="breakfast"><a href="/allrecipes/breakfast">Action</a></option>
+        <option value="/allrecipes/lunch"><a href="/allrecipes/breakfast">Lunch</a></option>
+        <option value="/allrecipes/dinner">Dinner</option>
+        <option value="/allrecipes/dessert">Dessert</option>
+        <option value="/allrecipes/drinks">Drinks</option>
+      </select>
+        </div>
+    </div>
+
+<div>
+</div>
 
 {% for result in results %} {% if loop.index % 2 != 0 %}
 <div class="container">
@@ -73,17 +101,18 @@
     </div>
    
   </div>
-  <div class="row">
+<!--  <div class="row">
     <div class="col-sm-4" >
-    
+     
     </div>
     <div class="col-sm-4">
   
   </div>
-</div>
+</div> -->
  {% endif %} {% if loop.index == 5 %}
  {% endif %}
  {% endfor %}
+
 
         <!---Pagination -->
         <div class="row">
