@@ -163,15 +163,22 @@ def recipe(recipe_id):
     result=get_single_recipe(recipe_id)
     return render_template('recipe.html', result=result) 
 
-#@app.route('/allrecipescategory/<category>')
-#def recipe_category(category):
-    #result=db.session.query(Recipe, Author, Cuisine, Ingredient
-                                    # ).filter(Recipe.recipe_catagory == category
-                                            #  ).join(Author, Recipe.author_id == Author.author_id
-                                                   #  ).join(Cuisine, Recipe.cuisine_id == Cuisine.cuisine_id
-                                                           # ).join(Ingredient, Recipe.ingredient_id == Ingredient.ingredient_id
-                                                                  # ).all()
-    #return render_template('allrecipes.html', result=result)  
+@app.route('/recipe/category/<category_name>')
+def recipe_category(category_name):
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    results = db.session.query(Recipe, Author, Ingredient, Cuisine).join(
+        Author).join(Ingredient).join(Cuisine).filter(Recipe.recipe_catagory==category_name).all()
+    page_size = len(results)
+    offset = (page - 1) * PER_PAGE
+
+    pagination_results = get_results(offset, PER_PAGE, results)
+  
+    pagination = Pagination(page=page, per_page=PER_PAGE,
+                            total=page_size, css_framework='bootstrap3')
+
+    return render_template('allrecipes.html', results=pagination_results, page=page,
+                           per_page=PER_PAGE, pagination=pagination)
+
     
 def randstr():
     '''' create random string of alpha numeric characters '''
